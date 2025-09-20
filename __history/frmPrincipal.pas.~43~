@@ -1,0 +1,96 @@
+unit frmPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.ExtCtrls,
+  System.ImageList, Vcl.ImgList, Vcl.StdCtrls, dxGDIPlusClasses, RxAnimate,
+  cxGraphics, cxControls, cxLookAndFeels, cxLookAndFeelPainters, cxContainer,
+  cxEdit, dxSkinsCore, dxSkinsDefaultPainters, cxLabel, Vcl.Mask;
+
+type
+  TformCalculoIMC = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    btnCalcular: TButton;
+    Panel3: TPanel;
+    lblAltura: TLabel;
+    lblPeso: TLabel;
+    AnimatedImage1: TAnimatedImage;
+    edtAltura: TMaskEdit;
+    edtPeso: TMaskEdit;
+    procedure btnCalcularClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  formCalculoIMC: TformCalculoIMC;
+
+implementation
+
+{$R *.dfm}
+
+procedure TformCalculoIMC.btnCalcularClick(Sender: TObject);
+var
+altura, resultado: Double;
+peso: Double;
+
+begin
+
+
+   peso := strtofloat(edtPeso.Text);
+   altura := strtofloat(edtAltura.Text);
+
+    if (peso = 0) or (altura = 0)  then
+     begin
+       showMessage('Não foi preenchido os campos de altura ou peso');
+       Exit;
+     end;
+
+    if (peso > 0) and (altura > 0) then
+     begin
+     resultado := peso / (altura * altura);
+        if resultado < 18.5 then
+        begin
+        showMessage('IMC: ' + floattostr(resultado) +' Abaixo do peso.');
+        end
+        else if (resultado >= 18.5) and (resultado < 24.9) then
+        begin
+        showMessage('IMC: ' + floattostr(resultado) +' Peso saúdavel.');
+        end
+        else if (resultado >= 25) and (resultado < 29.9) then
+        begin
+        showMessage('IMC: ' + floattostr(resultado) +' Sobrepeso.');
+        end
+        else if (resultado >= 30) and (resultado < 39.9) then
+        begin
+        showMessage('IMC: ' + floattostr(resultado) +' Obesidade.');
+        end
+        else if (resultado >= 40) then
+        begin
+        showMessage('IMC: ' + floattostr(resultado) +' Obesidade Grave.');
+        end;
+     end;
+
+
+end;
+
+
+procedure TformCalculoIMC.FormCreate(Sender: TObject);
+begin
+edtPeso.Text := '0';
+edtAltura.Text := '0';
+end;
+
+procedure TformCalculoIMC.FormShow(Sender: TObject);
+begin
+edtAltura.SetFocus;
+end;
+
+end.

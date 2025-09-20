@@ -1,0 +1,19 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <AppDPIAwarenessMode>PerMonitorV2</AppDPIAwarenessMode>
+        <VerInfo_Keys>CompanyName=JulioDev;FileDescription=$(MSBuildProjectName);FileVersion=1.0.1.0;InternalName=JulioDev;LegalCopyright=JulioDev;LegalTrademarks=JulioDev;OriginalFilename=;ProgramID=com.JulioDev.$(MSBuildProjectName);ProductName=$(MSBuildProjectName);ProductVersion=1.0.0.1;Comments=JulioDev</VerInfo_Keys>
+        <Icon_MainIcon>IMC_Icon1.ico</Icon_MainIcon>
+        <UWP_DelphiLogo44>balanca.png</UWP_DelphiLogo44>
+        <UWP_DelphiLogo150>balanca.png</UWP_DelphiLogo150>
+        <VerInfo_AutoGenVersion>true</VerInfo_AutoGenVersion>
+        <VerInfo_AutoIncVersion>false</VerInfo_AutoIncVersion>
+    </PropertyGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Delphi.Personality.12</Borland.Personality>
+        <Borland.ProjectType>OptionSet</Borland.ProjectType>
+        <BorlandProject>
+            <Delphi.Personality/>
+        </BorlandProject>
+        <ProjectFileVersion>12</ProjectFileVersion>
+    </ProjectExtensions>
+</Project>

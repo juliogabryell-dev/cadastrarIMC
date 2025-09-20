@@ -1,0 +1,14 @@
+program IMC;
+
+uses
+  Vcl.Forms,
+  frmPrincipal in 'frmPrincipal.pas' {formCalculoIMC};
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TformCalculoIMC, formCalculoIMC);
+  Application.Run;
+end.
